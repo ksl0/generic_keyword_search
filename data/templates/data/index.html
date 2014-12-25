@@ -5,5 +5,11 @@
 {% load staticfiles %}
 
 <h1> Hello World </h1>
-<h2>{{data.topic }} </h2>
 
+<ul>
+{% for data in object_list %}
+    <li>{{ data.topic}}</li>
+{%empty %}
+    <li>No data yet.</li>
+{% endfor %}
+</ul>

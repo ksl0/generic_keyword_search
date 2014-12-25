@@ -3,9 +3,10 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
-
 from data.models import KeyWords
 
+
 class IndexView(generic.ListView):
+    model = KeyWords 
     template_name = 'data/index.html'
-    model = KeyWords
+

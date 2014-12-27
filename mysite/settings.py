@@ -91,8 +91,12 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = 'staticfiles'
 
-DEBUG = False
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
+
+DEBUG = False
 
 try:
     from .local_settings import *

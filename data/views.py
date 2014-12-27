@@ -3,23 +3,39 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
-from data.models import KeyWords
 from django.conf import settings
+from django.template import RequestContext, loader
+from django.http import HttpResponse
 
-class IndexView(generic.ListView):
-    model = KeyWords 
-    template_name = 'data/index.html'
+from data.models import KeyWords
+
+def index(request):
+    template= loader.get_template('data/index.html')
+
+    def unwritten(model, n_results): 
+	#for simplicity, assuming that we only have one topic 
+	#total_topics = []
+	topic1 = model.objects.all()[0].topic
+	topic1.encode("ascii",'ignore')
+	total_twitter_output = settings.T_KEY.search(q=topic1, count=n_results)
+	tweet_list = []   
+
+	
+	for i in xrange(0,n_results): 
+	# call a filtering function here      
+	    text = total_twitter_output['statuses'][i]['text'].encode("ascii", 'ignore')
+	    username = total_twitter_output['statuses'][i]['user']['screen_name'].encode("ascii", 'ignore')
+	    tweet_list.append((username, text))
+	    #response.write("<div><p> username </p><p> text </p></div>")
+	return tweet_list 
+
+    context = RequestContext(request, {
+              'topics': unwritten(KeyWords, 10)
+    })
+   
+    return HttpResponse(template.render(context))
     
-words = 'cheesestick'
-#add a regrex function here
-#KeyWords.objects.all()[0].topic
-
-total = settings.T_KEY.search(q=words, count=2)
-
-text = []
-username = []
-text = total['statuses'][0]['text']
-username = total['statuses'][0]['user']['screen_name']
-
-
+     
+    
+#def filter_results(results): 
 

@@ -1,13 +1,8 @@
 #from django.conf import settings
+#TODO figure out how to use django.conf instead of other file
+import twit 
+from data.models import KeyWords
 
-import twit
-
-total = twit.twitter.search(q='cheesestick', count=2)
-
-text = []
-username = []
-text = total['statuses'][0]['text']
-username = total['statuses'][0]['user']['screen_name']
 
 
 

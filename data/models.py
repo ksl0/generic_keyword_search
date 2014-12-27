@@ -9,4 +9,6 @@ class KeyWords(models.Model):
 
     def __str__(self): 
         return self.topic
+    def words(self): 
+        return self.total_search_terms
   

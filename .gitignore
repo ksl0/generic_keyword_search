@@ -6,4 +6,3 @@ db.sqlite3
 *.pyc
 mysite/settings.py
 
-data/twit.py

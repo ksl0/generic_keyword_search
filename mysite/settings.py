@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '6lvwyik@e4q#2cmdr&s*6t-a-m=ym*^+33!%6w(5+hoos=tfb@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 TEMPLATE_DEBUG = True
 
 
@@ -114,5 +114,12 @@ APP_SECRET = '8yiNrl2Z19kSMDWejicdUli9BPTaBxAr36u34GCDAygiODLLKP'
 twitter = Twython(APP_KEY, APP_SECRET, oauth_version=2)
 ACCESS_TOKEN = twitter.obtain_access_token()
 T_KEY = Twython(APP_KEY, access_token=ACCESS_TOKEN)
+
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 

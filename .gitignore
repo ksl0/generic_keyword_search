@@ -1,5 +1,7 @@
 myvenv
 __pycache__
+staticfiles
 db.sqlite3
 *.pyc
 data/local_settings.py
+data/settings.py

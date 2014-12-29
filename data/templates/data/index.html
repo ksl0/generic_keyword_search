@@ -11,9 +11,10 @@
 {% for data in datapoints %}
 
   <div id = "single-user" >
-  {% for some in data %}
-      <li>{{ some}}</li>
-  {% endfor %}
+  <a href ="http://twitter.com/{{data.0}}">
+  <li>{{data.0}}</li>
+  </a>
+  <li>{{data.1}}</li>
   </div>
 
 

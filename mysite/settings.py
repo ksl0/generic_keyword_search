@@ -74,13 +74,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
+#DEBUG = False
 
 #twitter API key info 
 
@@ -95,7 +89,7 @@ ACCESS_TOKEN = twitter.obtain_access_token()
 ACCESS_TOKEN = u'AAAAAAAAAAAAAAAAAAAAAAV5dQAAAAAABnS97ajw6YpIaQ5MP6O8WNS%2Fb9U%3D8RXq3pSeFMqpr2dkRkGkmjURCm9iQUwxrJ4AR7j9jWZgZYsrFl' 
 T_KEY = Twython(APP_KEY, access_token=ACCESS_TOKEN)
 import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -112,3 +106,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+

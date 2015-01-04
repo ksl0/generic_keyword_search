@@ -106,6 +106,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+#set initial value of tweet_lists to 0
 
 try:
     from .local_settings import *

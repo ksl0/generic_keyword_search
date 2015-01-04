@@ -12,3 +12,7 @@ class KeyWords(models.Model):
         return self.topic
 #takes in a word and prints out the rest
 
+
+class Person(models.Model):
+   twext = models.CharField(max_length=300)
+   tuser = models.CharField(max_length=100)

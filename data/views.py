@@ -19,7 +19,7 @@ def index(request):
         total_twitter_output = settings.T_KEY.search(q=topic1, count=n_results)
         user_list = []
 	
-        for i in range(0,n_results): 
+        for i in xrange(0,n_results): 
 	# call a filtering function here      
             text = total_twitter_output['statuses'][i]['text'].encode("ascii", 'ignore')
             username = total_twitter_output['statuses'][i]['user']['screen_name'].encode("ascii", 'ignore')

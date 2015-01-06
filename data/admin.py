@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import KeyWords
+from .models import KeyWords
 
 class KeyWordsAdmin(admin.ModelAdmin): 
     fieldsets = [

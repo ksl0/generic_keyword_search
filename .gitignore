@@ -2,4 +2,6 @@ myvenv
 __pycache__
 db.sqlite3
 *.pyc
-data/local_settings.py
+mysite/local_settings.py
+*.rdb
+notes.txt

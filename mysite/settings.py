@@ -108,6 +108,14 @@ STATICFILES_DIRS = (
 )
 #set initial value of tweet_lists to 0
 
+
+#celery
+BROKER_URL = 'redis://redistogo:ba9f7ee5e0a85ea74baa90942cfb6153@mummichog.redistogo.com:9680/'
+CELERY_RESULT_BACKEND = 'redis://redistogo:ba9f7ee5e0a85ea74baa90942cfb6153@mummichog.redistogo.com:9680/'
+CELERY_ACCEPT_CONTENT  = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
 try:
     from .local_settings import *
 except ImportError:

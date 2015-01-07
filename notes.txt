@@ -1,0 +1,3 @@
+celery -A tasks worker --loglevel=info
+redis-server
+python call (within data folder to have access to the tasks module)

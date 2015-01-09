@@ -31,7 +31,8 @@ def index(request):
 	    time = total_twitter_output['statuses'][i]['user']['created_at']
 	    text = total_twitter_output['statuses'][i]['text'].encode("ascii", 'ignore')
 	    username = total_twitter_output['statuses'][i]['user']['screen_name'].encode("ascii", 'ignore')
-	    tweet_list.append([username, status_id, text,time])
+            pic = total_twitter_output['statuses'][i]['user']['profile_image_url']
+	    tweet_list.append([username, status_id, text,time, pic])
 	    #response.write("<div><p> username </p><p> text </p></div>")
 	return tweet_list 
 

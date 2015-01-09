@@ -6,7 +6,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'data/style.css' %}" />
 
 <body>
-<h1> Tweets Related to Police Activity</h1>
+<h1> Tweets Related to Topics </h1>
+
 <ul>
 {% for data in datapoints %}
 
@@ -14,7 +15,9 @@
   <a href ="http://twitter.com/{{data.0}}/status/{{data.1}}">
   <li>{{data.0}}</li>
   </a>
-  <li>{{data.2}}</li>
+  <li >
+     <img src={{data.4}} />
+     <p>{{data.2}}</p></li>
   <li> {{data.3}} </li>
   </div>
 

@@ -11,10 +11,11 @@
 {% for data in datapoints %}
 
   <div id = "single-user" >
-  <a href ="http://twitter.com/{{data.0}}">
+  <a href ="http://twitter.com/{{data.0}}/status/{{data.1}}">
   <li>{{data.0}}</li>
   </a>
-  <li>{{data.1}}</li>
+  <li>{{data.2}}</li>
+  <li> {{data.3}} </li>
   </div>
 
 

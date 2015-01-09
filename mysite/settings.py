@@ -83,8 +83,11 @@ from twython import Twython
 # get  OAuth2 access token
 APP_KEY = 'ztvslMvhhPfuBlIqNVt9vpf31'
 APP_SECRET = '8yiNrl2Z19kSMDWejicdUli9BPTaBxAr36u34GCDAygiODLLKP'
-twitter = Twython(APP_KEY, APP_SECRET, oauth_version=2)
-ACCESS_TOKEN = twitter.obtain_access_token()
+OAUTH_TOKEN = '2470883310-YGwgFw3vlSWwKgvkaRHBAcmezu3T0PyCoCUWatb' 
+OAUTH_TOKEN_SECRET = 'B5wobWweDNmCPB08Eq9mjmoadw4XBRaMFwKTwkqs2CNnX' 
+
+twitter= Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
+twitter2 = Twython(APP_KEY, APP_SECRET, oauth_version=2)
 
 ACCESS_TOKEN = u'AAAAAAAAAAAAAAAAAAAAAAV5dQAAAAAABnS97ajw6YpIaQ5MP6O8WNS%2Fb9U%3D8RXq3pSeFMqpr2dkRkGkmjURCm9iQUwxrJ4AR7j9jWZgZYsrFl' 
 T_KEY = Twython(APP_KEY, access_token=ACCESS_TOKEN)

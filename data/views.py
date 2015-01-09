@@ -23,14 +23,20 @@ def index(request):
 	
 	for i in xrange(0,n_results): 
 	# call a filtering function here      
+            #response.write("<div><p> username </p><p> text </p></div>")
+            #total_twitter_output['statuses'][0]['id']
+            #total_twitter_output["statuses"][0]["user"]["profile_image_url_https"]
+            #saving a Person to the model 
+            status_id = total_twitter_output['statuses'][i]['id']
+	    time = total_twitter_output['statuses'][i]['user']['created_at']
 	    text = total_twitter_output['statuses'][i]['text'].encode("ascii", 'ignore')
 	    username = total_twitter_output['statuses'][i]['user']['screen_name'].encode("ascii", 'ignore')
-	    tweet_list.append([username, text])
+	    tweet_list.append([username, status_id, text,time])
 	    #response.write("<div><p> username </p><p> text </p></div>")
 	return tweet_list 
 
     context = RequestContext(request, {
-             'datapoints':  unwritten(KeyWords, 47)
+             'datapoints':  unwritten(KeyWords, 100)
     })
    
     return HttpResponse(template.render(context))

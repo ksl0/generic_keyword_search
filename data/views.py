@@ -15,13 +15,16 @@ def index(request):
     def unwritten(model, n_results): 
 	#for simplicity, assuming that we only have one topic 
 	#total_topics = []
-	topic1 = model.objects.all()[0].topic
+ 	topic1 = model.objects.all()[0].topic
 	topic1.encode("ascii",'ignore')
 	total_twitter_output = settings.T_KEY.search(q=topic1, count=n_results)
 	tweet_list = []   
         user_list = []
-	
-	for i in xrange(0,n_results): 
+
+	num_results = total_twitter_output['search_metadata']['count']
+	print num_results
+	for i in xrange(0,1): 
+             	
 	# call a filtering function here      
             #response.write("<div><p> username </p><p> text </p></div>")
             #total_twitter_output['statuses'][0]['id']
